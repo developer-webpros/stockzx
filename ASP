@@ -1,0 +1,875 @@
+Q 1.1 Write a PHP program for print Previous semester Result using variables & constants in PHP.
+<?php
+// constant
+define("SEMESTER", "Previous Semester Result");
+
+// variables
+$name = "Rahul";
+$course = "BCA";
+$marks = 420;
+$total = 500;
+$percentage = ($marks / $total) * 100;
+
+echo SEMESTER . "<br>";
+echo "Name: $name <br>";
+echo "Course: $course <br>";
+echo "Marks: $marks / $total <br>";
+echo "Percentage: $percentage%";
+?>
+
+Q 1.2 Write a PHP program to find out maximum and minimum number.
+<?php
+$a = 10;
+$b = 25;
+$c = 5;
+
+$max = max($a, $b, $c);
+$min = min($a, $b, $c);
+
+echo "Numbers: $a, $b, $c <br>";
+echo "Maximum number is: $max <br>";
+echo "Minimum number is: $min";
+?>
+
+Q 1.3 Write a PHP program for operators in PHP.
+<?php
+$x = 20;
+$y = 10;
+
+echo "Arithmetic Operators <br>";
+echo "$x + $y = " . ($x + $y) . "<br>";
+echo "$x - $y = " . ($x - $y) . "<br>";
+echo "$x * $y = " . ($x * $y) . "<br>";
+echo "$x / $y = " . ($x / $y) . "<br>";
+
+echo "<br>Relational Operators <br>";
+echo "$x > $y : " . ($x > $y ? "True" : "False") . "<br>";
+echo "$x < $y : " . ($x < $y ? "True" : "False") . "<br>";
+
+echo "<br>Logical Operators <br>";
+echo "($x > 5 && $y < 20) : " . (($x > 5 && $y < 20) ? "True" : "False") . "<br>";
+?>
+
+Q 1.4 Write a PHP program to print current month using if..else & switch case.
+<?php
+$month = date("F"); // current month name
+
+echo "Using if..else: <br>";
+if ($month == "August") {
+    echo "This is August.";
+} else {
+    echo "This is $month.";
+}
+
+echo "<br><br>Using switch case: <br>";
+switch ($month) {
+    case "January": echo "This is January."; break;
+    case "February": echo "This is February."; break;
+    case "August": echo "This is August."; break;
+    default: echo "This is $month."; break;
+}
+?>
+
+Q 1.5 Write a PHP program to print 5 to 10 using For and ForEach.
+<?php
+echo "Using For Loop: <br>";
+for ($i = 5; $i <= 10; $i++) {
+    echo $i . " ";
+}
+
+echo "<br><br>Using Foreach Loop: <br>";
+$nums = [5, 6, 7, 8, 9, 10];
+foreach ($nums as $n) {
+    echo $n . " ";
+}
+?>
+
+Q 1.6 Write a PHP program to print 15 to 20 using While and Do While.
+<?php
+echo "Using While Loop: <br>";
+$i = 15;
+while ($i <= 20) {
+    echo $i . " ";
+    $i++;
+}
+
+echo "<br><br>Using Do While Loop: <br>";
+$j = 15;
+do {
+    echo $j . " ";
+    $j++;
+} while ($j <= 20);
+?>
+
+Q 1.7 Write a PHP program to include a file using include and require function.
+
+👉 Create a file header.php first:
+
+<?php
+echo "<h2>Welcome to My Website</h2>";
+?>
+
+
+👉 Main file:
+
+<?php
+echo "Using include: <br>";
+include("header.php");
+
+echo "Using require: <br>";
+require("header.php");
+?>
+
+Q 1.8 Write a PHP Program to print the values of array entered by user.
+<?php
+// Example array entered by user
+$arr = array(10, 20, 30, 40, 50);
+
+echo "Array values are: <br>";
+foreach ($arr as $val) {
+    echo $val . " ";
+}
+?>
+
+Q 1.9 Write a PHP Program to reverse an array values entered by user.
+<?php
+$arr = array(10, 20, 30, 40, 50);
+
+echo "Original Array: <br>";
+print_r($arr);
+
+echo "<br><br>Reversed Array: <br>";
+$rev = array_reverse($arr);
+print_r($rev);
+?>
+
+Q 1.10 Write a PHP Program to merge two arrays.
+<?php
+$arr1 = array("Apple", "Banana", "Mango");
+$arr2 = array("Orange", "Grapes");
+
+$merge = array_merge($arr1, $arr2);
+
+echo "First Array: <br>";
+print_r($arr1);
+
+echo "<br><br>Second Array: <br>";
+print_r($arr2);
+
+echo "<br><br>Merged Array: <br>";
+print_r($merge);
+?>
+
+
+
+Q 2.1 Write a PHP code to create numeric array, associative array, and multidimensional array.
+<?php
+// Numeric Array for days
+$days = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+echo "Numeric Array (Days): <br>";
+print_r($days);
+
+echo "<br><br>";
+
+// Associative Array for months with total days
+$months = array(
+    "January" => 31,
+    "February" => 28,
+    "March" => 31,
+    "April" => 30,
+    "May" => 31,
+    "June" => 30,
+    "July" => 31,
+    "August" => 31,
+    "September" => 30,
+    "October" => 31,
+    "November" => 30,
+    "December" => 31
+);
+echo "Associative Array (Months with Days): <br>";
+print_r($months);
+
+echo "<br><br>";
+
+// Multidimensional Array for laptops
+$laptops = array(
+    "Dell" => array("Model" => "Inspiron 15", "Price" => 55000),
+    "HP"   => array("Model" => "Pavilion", "Price" => 60000)
+);
+echo "Multidimensional Array (Laptops): <br>";
+print_r($laptops);
+?>
+
+Q 2.2 Write a PHP code for sorting an array entered by user.
+<?php
+$arr = array(5, 2, 8, 1, 9, 3);
+
+echo "Original Array: <br>";
+print_r($arr);
+
+sort($arr); // Ascending order
+echo "<br><br>Sorted Array (Ascending): <br>";
+print_r($arr);
+
+rsort($arr); // Descending order
+echo "<br><br>Sorted Array (Descending): <br>";
+print_r($arr);
+?>
+
+Q 2.3 Write a program to perform array functions.
+<?php
+$months = array("Jan", "Feb", "Mar", "Apr", "May", "Jun");
+
+// 1) array_change_key_case
+$arr = array("One"=>1, "Two"=>2);
+print_r(array_change_key_case($arr, CASE_UPPER));
+echo "<br><br>";
+
+// 2) array_chunk
+print_r(array_chunk($months, 2));
+echo "<br><br>";
+
+// 3) array_count_values
+$nums = array(1,2,2,3,3,3,4);
+print_r(array_count_values($nums));
+echo "<br><br>";
+
+// 4) array_pop
+array_pop($months);
+print_r($months);
+echo "<br><br>";
+
+// 5) array_push
+array_push($months, "Jul", "Aug");
+print_r($months);
+echo "<br><br>";
+
+// 6) array_unshift
+array_unshift($months, "Start");
+print_r($months);
+echo "<br><br>";
+
+// 7) array_shift
+array_shift($months);
+print_r($months);
+?>
+
+Q 2.4 String functions in PHP.
+<?php
+$str = "Hello PHP World";
+
+// 1) strlen
+echo "Length: " . strlen($str) . "<br>";
+
+// 2) strpos
+echo "Position of 'PHP': " . strpos($str, "PHP") . "<br>";
+
+// 3) str_word_count
+echo "Word Count: " . str_word_count($str) . "<br>";
+
+// 4) strrev
+echo "Reverse: " . strrev($str) . "<br>";
+
+// 5) strtolower
+echo "Lowercase: " . strtolower($str) . "<br>";
+
+// 6) strtoupper
+echo "Uppercase: " . strtoupper($str) . "<br>";
+?>
+
+Q 2.5 Type casting with settype, gettype.
+<?php
+$var = "123";
+
+echo "Original Type: " . gettype($var) . "<br>";
+
+settype($var, "integer");
+echo "After settype: " . gettype($var) . " value = $var<br>";
+
+$val = 45.6;
+echo "Type of val: " . gettype($val);
+?>
+
+Q 2.6 User-defined function for Calculator (with HTML form).
+<!-- HTML Form -->
+<form method="post">
+    Enter Number 1: <input type="text" name="num1"><br>
+    Enter Number 2: <input type="text" name="num2"><br>
+    Select Operation: 
+    <select name="op">
+        <option value="add">Add</option>
+        <option value="sub">Subtract</option>
+        <option value="mul">Multiply</option>
+        <option value="div">Divide</option>
+    </select><br>
+    <input type="submit" name="submit" value="Calculate">
+</form>
+
+<?php
+function calc($a, $b, $op) {
+    switch($op) {
+        case "add": return $a + $b;
+        case "sub": return $a - $b;
+        case "mul": return $a * $b;
+        case "div": return $b != 0 ? $a / $b : "Division by zero error!";
+    }
+}
+
+if (isset($_POST['submit'])) {
+    $n1 = $_POST['num1'];
+    $n2 = $_POST['num2'];
+    $op = $_POST['op'];
+    echo "Result: " . calc($n1, $n2, $op);
+}
+?>
+
+Q 2.7 MySQL String Manipulation Functions
+<?php
+// Example MySQL Queries
+$sql1 = "SELECT LENGTH('Hello World') AS len;";
+$sql2 = "SELECT CONCAT('Hello', ' ', 'PHP') AS result;";
+$sql3 = "SELECT CONCAT_WS('-', '2025','08','26') AS date;";
+$sql4 = "SELECT TRIM('   Hello   ') AS trimmed, LTRIM('   Hello') AS leftTrim, RTRIM('Hello   ') AS rightTrim;";
+$sql5 = "SELECT LPAD('123', 5, '0') AS leftPad, RPAD('123', 5, '0') AS rightPad;";
+$sql6 = "SELECT LOCATE('PHP','Hello PHP World') AS pos;";
+?>
+
+Q 2.8 MySQL Date & Time Functions (Part 1).
+<?php
+$sql1 = "SELECT DAYOFWEEK('2025-08-26') AS dayofweek;";
+$sql2 = "SELECT WEEKDAY('2025-08-26') AS weekday;";
+$sql3 = "SELECT DAYOFMONTH('2025-08-26') AS dayofmonth;";
+$sql4 = "SELECT DAYOFYEAR('2025-08-26') AS dayofyear;";
+$sql5 = "SELECT DAYNAME('2025-08-26') AS dayname;";
+?>
+
+Q 2.9 MySQL Date & Time Functions (Part 2).
+<?php
+$sql1 = "SELECT HOUR('2025-08-26 14:35:20') AS hour;";
+$sql2 = "SELECT MINUTE('2025-08-26 14:35:20') AS minute;";
+$sql3 = "SELECT SECOND('2025-08-26 14:35:20') AS second;";
+$sql4 = "SELECT DATE_FORMAT('2025-08-26', '%d-%m-%Y') AS formatted;";
+$sql5 = "SELECT DATE_SUB('2025-08-26', INTERVAL 5 DAY) AS newDate;";
+?>
+
+Q 2.10 MySQL Date & Time Functions (Part 3).
+<?php
+$sql1 = "SELECT CURDATE() AS today, CURRENT_DATE AS today2;";
+$sql2 = "SELECT CURTIME() AS nowtime, CURRENT_TIME() AS nowtime2;";
+$sql3 = "SELECT UNIX_TIMESTAMP() AS unixtime;";
+$sql4 = "SELECT FROM_UNIXTIME(1693000000) AS datetime;";
+?>
+
+
+3.1 Create a cookie in a form
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["username"];
+    setcookie("username", $name, time() + 3600, "/"); // expires in 1 hour
+    echo "Cookie created successfully!";
+}
+?>
+<form method="post">
+    Enter Name: <input type="text" name="username">
+    <input type="submit" value="Submit">
+</form>
+
+3.2 Read the cookie of a form
+<?php
+if(isset($_COOKIE["username"])) {
+    echo "Cookie Value: " . $_COOKIE["username"];
+} else {
+    echo "No cookie found!";
+}
+?>
+
+3.3 Use cookie with header
+<?php
+setcookie("user", "John Doe", time()+3600, "/"); 
+header("Location: readcookie.php"); // redirect to readcookie.php
+exit();
+?>
+
+3.4 Delete a cookie
+<?php
+setcookie("username", "", time()-3600, "/"); // expire in past
+echo "Cookie deleted!";
+?>
+
+3.5 Create a session
+<?php
+session_start();
+$_SESSION["user"] = "John";
+echo "Session created, User = " . $_SESSION["user"];
+?>
+
+3.6 Destroy a session
+<?php
+session_start();
+session_unset();
+session_destroy();
+echo "Session destroyed!";
+?>
+
+3.7 Session login/logout (Practical 12 extension)
+
+login.php
+
+<?php
+session_start();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user = $_POST["username"];
+    $pass = $_POST["password"];
+
+    if ($user == "admin" && $pass == "123") {
+        $_SESSION["login"] = true;
+        header("Location: home.php");
+        exit();
+    } else {
+        echo "Invalid Login!";
+    }
+}
+?>
+<form method="post">
+    Username: <input type="text" name="username"><br>
+    Password: <input type="password" name="password"><br>
+    <input type="submit" value="Login">
+</form>
+
+
+home.php
+
+<?php
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit();
+}
+echo "Welcome to Home Page! <a href='logout.php'>Logout</a>";
+?>
+
+
+logout.php
+
+<?php
+session_start();
+session_destroy();
+header("Location: login.php");
+exit();
+?>
+
+3.8 Identify New/Repeated User with Cookie
+<?php
+if(isset($_COOKIE["visited"])) {
+    echo "Welcome back, user!";
+} else {
+    setcookie("visited", "yes", time()+3600*24*30, "/"); // 30 days
+    echo "Welcome, new user!";
+}
+?>
+
+3.9 Remember Username & Password on Login Form
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user = $_POST["username"];
+    $pass = $_POST["password"];
+
+    if(isset($_POST["remember"])) {
+        setcookie("username", $user, time()+3600*24*7, "/"); 
+        setcookie("password", $pass, time()+3600*24*7, "/"); 
+    }
+    echo "Login Successful!";
+}
+?>
+<form method="post">
+    Username: <input type="text" name="username" value="<?php echo $_COOKIE['username'] ?? '' ?>"><br>
+    Password: <input type="password" name="password" value="<?php echo $_COOKIE['password'] ?? '' ?>"><br>
+    <input type="checkbox" name="remember"> Remember Me<br>
+    <input type="submit" value="Login">
+</form>
+
+3.10 Store Registration Form in Database
+<?php
+$host = "localhost";
+$user = "root"; // your db username
+$pass = "";     // your db password
+$db   = "test"; // your db name
+
+$conn = mysqli_connect($host, $user, $pass, $db);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $pass = $_POST["password"];
+
+    $sql = "INSERT INTO users (name, email, password) VALUES ('$name','$email','$pass')";
+    if (mysqli_query($conn, $sql)) {
+        echo "Registration successful!";
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+}
+?>
+<form method="post">
+    Name: <input type="text" name="name"><br>
+    Email: <input type="email" name="email"><br>
+    Password: <input type="password" name="password"><br>
+    <input type="submit" value="Register">
+</form>
+
+
+4.1 Database Connection
+<?php
+// MySQLi
+$mysqli = new mysqli("localhost", "root", "", "test");
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
+echo "Connected with MySQLi<br>";
+
+// PDO
+try {
+    $pdo = new PDO("mysql:host=localhost;dbname=test", "root", "");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected with PDO";
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
+?>
+
+4.2 Create a MySQL Table (MySQLi & PDO)
+<?php
+// MySQLi
+$mysqli = new mysqli("localhost", "root", "", "test");
+$sql = "CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50),
+    email VARCHAR(100),
+    password VARCHAR(100)
+)";
+if ($mysqli->query($sql)) echo "Table created with MySQLi<br>";
+
+// PDO
+$pdo = new PDO("mysql:host=localhost;dbname=test", "root", "");
+$sql = "CREATE TABLE IF NOT EXISTS users_pdo (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50),
+    email VARCHAR(100),
+    password VARCHAR(100)
+)";
+$pdo->exec($sql);
+echo "Table created with PDO";
+?>
+
+4.3 Insert Data Into MySQL (MySQLi & PDO)
+<?php
+// MySQLi
+$mysqli = new mysqli("localhost", "root", "", "test");
+$sql = "INSERT INTO users (name,email,password) VALUES ('John','john@mail.com','12345')";
+$mysqli->query($sql);
+echo "Data inserted with MySQLi<br>";
+
+// PDO
+$pdo = new PDO("mysql:host=localhost;dbname=test", "root", "");
+$sql = "INSERT INTO users_pdo (name,email,password) VALUES ('Alice','alice@mail.com','54321')";
+$pdo->exec($sql);
+echo "Data inserted with PDO";
+?>
+
+4.4 Prepared Statements
+<?php
+// MySQLi
+$mysqli = new mysqli("localhost", "root", "", "test");
+$stmt = $mysqli->prepare("INSERT INTO users (name,email,password) VALUES (?,?,?)");
+$stmt->bind_param("sss", $name, $email, $password);
+$name = "Bob"; $email = "bob@mail.com"; $password = "99999";
+$stmt->execute();
+echo "Inserted with MySQLi Prepared Statement<br>";
+
+// PDO
+$pdo = new PDO("mysql:host=localhost;dbname=test", "root", "");
+$stmt = $pdo->prepare("INSERT INTO users_pdo (name,email,password) VALUES (?,?,?)");
+$stmt->execute(["Charlie", "charlie@mail.com", "77777"]);
+echo "Inserted with PDO Prepared Statement";
+?>
+
+4.5 Select Data From Database
+<?php
+// MySQLi
+$mysqli = new mysqli("localhost", "root", "", "test");
+$result = $mysqli->query("SELECT * FROM users");
+while($row = $result->fetch_assoc()) {
+    echo $row['id']." - ".$row['name']." - ".$row['email']."<br>";
+}
+
+// PDO
+$pdo = new PDO("mysql:host=localhost;dbname=test", "root", "");
+$stmt = $pdo->query("SELECT * FROM users_pdo");
+while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    echo $row['id']." - ".$row['name']." - ".$row['email']."<br>";
+}
+?>
+
+4.6 Delete Data (MySQLi & PDO)
+<?php
+// MySQLi
+$mysqli = new mysqli("localhost", "root", "", "test");
+$mysqli->query("DELETE FROM users WHERE id=1");
+echo "Deleted with MySQLi<br>";
+
+// PDO
+$pdo = new PDO("mysql:host=localhost;dbname=test", "root", "");
+$stmt = $pdo->prepare("DELETE FROM users_pdo WHERE id=?");
+$stmt->execute([1]);
+echo "Deleted with PDO";
+?>
+
+4.7 Update Data (MySQLi & PDO)
+<?php
+// MySQLi
+$mysqli = new mysqli("localhost", "root", "", "test");
+$mysqli->query("UPDATE users SET name='Updated John' WHERE id=2");
+echo "Updated with MySQLi<br>";
+
+// PDO
+$pdo = new PDO("mysql:host=localhost;dbname=test", "root", "");
+$stmt = $pdo->prepare("UPDATE users_pdo SET name=? WHERE id=?");
+$stmt->execute(["Updated Alice", 2]);
+echo "Updated with PDO";
+?>
+
+4.8 Limit Data Selections
+<?php
+// MySQLi
+$mysqli = new mysqli("localhost", "root", "", "test");
+$result = $mysqli->query("SELECT * FROM users LIMIT 3");
+while($row = $result->fetch_assoc()) {
+    echo $row['name']."<br>";
+}
+
+// PDO
+$pdo = new PDO("mysql:host=localhost;dbname=test", "root", "");
+$stmt = $pdo->query("SELECT * FROM users_pdo LIMIT 3");
+while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    echo $row['name']."<br>";
+}
+?>
+
+4.9 Login Authentication
+
+login.php
+
+<?php
+session_start();
+$conn = new mysqli("localhost","root","","test");
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
+
+    $sql = "SELECT * FROM users WHERE name='$user' AND password='$pass'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $_SESSION['user'] = $user;
+        header("Location: home.php");
+    } else {
+        echo "Invalid Username or Password!";
+    }
+}
+?>
+<form method="post">
+    Username: <input type="text" name="username"><br>
+    Password: <input type="password" name="password"><br>
+    <input type="submit" value="Login">
+</form>
+
+
+home.php
+
+<?php
+session_start();
+if(!isset($_SESSION['user'])) {
+    header("Location: login.php");
+    exit();
+}
+echo "Welcome ".$_SESSION['user']."! <a href='logout.php'>Logout</a>";
+?>
+
+
+logout.php
+
+<?php
+session_start();
+session_destroy();
+header("Location: login.php");
+?>
+
+4.10 Edit Profile Page
+
+edit.php
+
+<?php
+session_start();
+$conn = new mysqli("localhost","root","","test");
+
+// assume user is already logged in
+$user = $_SESSION['user'];
+$result = $conn->query("SELECT * FROM users WHERE name='$user'");
+$data = $result->fetch_assoc();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $newEmail = $_POST['email'];
+    $newPass = $_POST['password'];
+    $conn->query("UPDATE users SET email='$newEmail', password='$newPass' WHERE name='$user'");
+    echo "Profile updated!";
+    $data['email'] = $newEmail;
+    $data['password'] = $newPass;
+}
+?>
+<form method="post">
+    Username: <input type="text" value="<?php echo $data['name']; ?>" disabled><br>
+    Email: <input type="email" name="email" value="<?php echo $data['email']; ?>"><br>
+    Password: <input type="password" name="password" value="<?php echo $data['password']; ?>"><br>
+    <input type="submit" value="Update">
+</form>
+
+<?php
+echo "Today is " . date("Y/m/d") . "<br>";
+echo "Today is " . date("Y.m.d") . "<br>";
+echo "Today is " . date("Y-m-d") . "<br>";
+echo "Today is " . date("l");
+?>
+Output
+Today is 2020/11/03
+Today is 2020.11.03
+Today is 2020-11-03
+Today is Tuesday
+
+
+<?php
+// String Functions in PHP
+
+$str = "Hello World!";
+
+// 1. strlen() → Get string length
+echo "1. String Length: " . strlen($str) . "<br>";
+
+// 2. strtoupper() → Convert to uppercase
+echo "2. Uppercase: " . strtoupper($str) . "<br>";
+
+// 3. strtolower() → Convert to lowercase
+echo "3. Lowercase: " . strtolower($str) . "<br>";
+
+// 4. ucfirst() → First character uppercase
+$str2 = "php programming";
+echo "4. ucfirst: " . ucfirst($str2) . "<br>";
+
+// 5. str_replace() → Replace text
+$str3 = "I love PHP";
+echo "5. str_replace: " . str_replace("PHP", "JavaScript", $str3) . "<br>";
+
+// 6. substr() → Extract part of string
+echo "6. substr: " . substr($str, 0, 5) . "<br>";
+
+// 7. strpos() → Find position of substring
+echo "7. strpos: " . strpos($str, "World") . "<br>";
+
+// 8. trim() → Remove whitespace
+$str4 = "   spaced text   ";
+echo "8. trim: '" . trim($str4) . "'<br>";
+
+// 9. strrev() → Reverse string
+echo "9. strrev: " . strrev($str) . "<br>";
+
+// 10. explode() → Split string into array
+$str5 = "apple,banana,orange";
+$arr = explode(",", $str5);
+echo "10. explode: ";
+print_r($arr);
+echo "<br>";
+
+// 11. implode() → Join array into string
+echo "11. implode: " . implode(" - ", $arr) . "<br>";
+
+// 12. strcmp() → Compare strings
+echo "12. strcmp: " . strcmp("Hello", "Hello") . "<br>"; // 0 means equal
+echo "12. strcmp: " . strcmp("Hello", "World") . "<br>"; // Non-zero means not equal
+?>
+
+print_r
+
+
+
+<?php
+// Date & Time Functions in PHP
+
+// 1. Current date
+echo "1. Current Date: " . date("Y-m-d") . "<br>";
+
+// 2. Current time
+echo "2. Current Time: " . date("H:i:s") . "<br>";
+
+// 3. Full date and time
+echo "3. Full Date-Time: " . date("Y-m-d H:i:s") . "<br>";
+
+// 4. Different formats
+echo "4. Day: " . date("l") . "<br>";       // Full day name
+echo "5. Month: " . date("F") . "<br>";     // Full month name
+echo "6. Year: " . date("Y") . "<br>";      // Full year
+echo "7. Date with slashes: " . date("d/m/Y") . "<br>";
+
+// 5. Timestamp (seconds since 1970-01-01)
+echo "8. Current Timestamp: " . time() . "<br>";
+
+// 6. Convert timestamp to date
+$timestamp = time();
+echo "9. Date from Timestamp: " . date("Y-m-d H:i:s", $timestamp) . "<br>";
+
+// 7. strtotime() → Convert text to timestamp
+$ts = strtotime("next Monday");
+echo "10. Next Monday: " . date("Y-m-d H:i:s", $ts) . "<br>";
+
+// 8. Adding 7 days to current date
+echo "11. After 7 days: " . date("Y-m-d", strtotime("+7 days")) . "<br>";
+
+// 9. Subtracting 1 month
+echo "12. One month ago: " . date("Y-m-d", strtotime("-1 month")) . "<br>";
+
+// 10. DateTime object (OOP style)
+$dt = new DateTime("2025-01-01 10:30:00");
+echo "13. DateTime Object: " . $dt->format("Y-m-d H:i:s") . "<br>";
+
+// 11. Modify DateTime
+$dt->modify("+1 day");
+echo "14. Modified DateTime (+1 day): " . $dt->format("Y-m-d H:i:s") . "<br>";
+
+// 12. Timezone Example
+date_default_timezone_set("Asia/Kolkata");
+echo "15. Time in India: " . date("Y-m-d H:i:s") . "<br>";
+
+date_default_timezone_set("America/New_York");
+echo "16. Time in New York: " . date("Y-m-d H:i:s") . "<br>";
+?>
+
+
+<?php
+$host = "localhost";   // Database host
+$user = "root";        // Database username
+$pass = "";            // Database password
+$db   = "testdb";      // Database name
+
+// Create connection
+$conn = mysqli_connect($host, $user, $pass, $db);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+echo "Connected successfully!";
+?>
+
